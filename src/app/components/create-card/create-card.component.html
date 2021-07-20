@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="title">{{ title | uppercase }}</h5>
+        <form [formGroup]="form" (ngSubmit)="saveCard()" autocomplete="off">
+            <div class="input-group mb-3">
+                <span class="input-group-text">
+                    <i class="fas fa-user-circle" 
+                        [class.green-icon]="this.form.get('owner')?.valid"
+                        [class.red-icon]="this.form.get('owner')?.invalid && this.form.get('owner')?.touched">
+                    </i>
+                </span>
+                <input type="text" class="form-control" formControlName="owner" placeholder="Owner">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">
+                    <i class="fas fa-credit-card" 
+                        [class.green-icon]="this.form.get('creditCardNumber')?.valid"
+                        [class.red-icon]="this.form.get('creditCardNumber')?.invalid && this.form.get('creditCardNumber')?.touched">
+                    </i>
+                </span>
+                <input type="text" class="form-control" formControlName="creditCardNumber" maxlength="16" placeholder="Credit card number">
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i class="fas fa-calendar-alt" 
+                                [class.green-icon]="this.form.get('expirationDate')?.valid"
+                                [class.red-icon]="this.form.get('expirationDate')?.invalid && this.form.get('expirationDate')?.touched">
+                            </i>
+                        </span>
+                        <input type="text" class="form-control" formControlName="expirationDate" maxlength="5" placeholder="MM/YY">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i class="fas fa-key" 
+                                [class.green-icon]="this.form.get('cvv')?.valid"
+                                [class.red-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched">
+                            </i>
+                        </span>
+                        <input type="password" class="form-control" formControlName="cvv" maxlength="4" placeholder="CVV">
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center mb-3" *ngIf="loading">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" type="submit" [disabled]="this.form.invalid">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "creditcardapp-887b3": {
+      "hosting": {
+        "CreditCardApp": [
+          "creditcardapp-887b3"
+        ]
+      }
+    }
+  }
+}

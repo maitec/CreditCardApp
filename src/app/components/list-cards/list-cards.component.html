@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="title">CREDIT CARDS</h5>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let card of creditCardList">
+                    <td>{{ card.owner }}</td>
+                    <td>{{ card.creditCardNumber }}</td>
+                    <td>{{ card.expirationDate }}</td>
+                    <td>
+                        <i (click)="editCreditCard(card)" class="far fa-edit text-info"></i>
+                        <i (click)="deleteCreditCard(card.id)" class="far fa-trash-alt text-danger"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
